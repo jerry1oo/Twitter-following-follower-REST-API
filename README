@@ -1,0 +1,50 @@
+Run app:
+    - Docker: 
+        - Run: docker run -p 3000:3000 jerry1oo/informed_api:V1
+        - App running on http://localhost:3000 
+    - Local files: (Must have Node and npm installed)
+        - unzip Informed_api.zip
+        - cd into Informed_restapi
+        - run: npm install
+        - run: node index.js
+        - App running on http://localhost:3000
+            - Port will be the local ENV Port
+            - Port 3000 is default
+
+Database: MongoDB Atlas
+    - you can view data with MongoDB Compass
+    - connection string: mongodb+srv://jeremiah123:jeremiah123@informedcluster-mlyol.mongodb.net/test?authSource=admin&replicaSet=InformedCluster-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true
+
+API endpoints:
+    - /userhandle
+        - Returns all attributes of this user
+        - Use GET Method
+    - /userhandle/followers
+        - Returns list of all userhandles that follow a particular user
+        - Use GET Method 
+    - /userhandle/following 
+        - Returns list of all userhandles a user follows
+        - Use GET Method
+    - /userhandle/connections
+        - Returns a unique list of all followers a user is connected to
+        - Use GET Method
+    - /userhandle/follow/userhandle1
+        - userhandle starts following userhandle1 if not already doing so
+        - Use POST Method
+    - /
+        - Returns all Users in Database (incase you dont have MongoDB Compass installed)
+        - Use GET Method
+    - /addUser
+        - add a new User to Database (incase you want to add a user and make the connections with that user)
+        - Use POST Method
+        - Format:
+            {
+                "display_name": "Jeremiah",
+                "userhandle": "Jeremiah",
+                "Address": {
+ 		            "Street": "tempstreet",
+ 		            "City": "tempcity",
+ 		            "Zip": "90302"
+ 	            },
+ 	            "TwoFactorAuthEnabled": true
+            }
